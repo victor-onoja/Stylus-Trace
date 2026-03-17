@@ -35,10 +35,7 @@ fn build_html(
         profile_b_b64.unwrap_or_default(),
     );
     html = html.replace("/* DIFF_DATA_B64 */", diff_b64.unwrap_or_default());
-    html = html.replace(
-        "/* FLAMEGRAPH_SVG */",
-        flamegraph_svg.unwrap_or_default(),
-    );
+    html = html.replace("/* FLAMEGRAPH_SVG */", flamegraph_svg.unwrap_or_default());
 
     // Inline CSS
     html = html.replace(

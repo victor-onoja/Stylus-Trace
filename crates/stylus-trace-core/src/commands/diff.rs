@@ -136,11 +136,11 @@ pub fn execute_diff(args: DiffArgs) -> Result<()> {
 
         // Attempt to generate diff flamegraph SVG for the multi-view tab.
         // If full stacks are not available (older capture), viewer still works without it.
-        let diff_svg = baseline.all_stacks.as_ref()
+        let diff_svg = baseline
+            .all_stacks
+            .as_ref()
             .zip(target.all_stacks.as_ref())
-            .and_then(|(b, t)| {
-                crate::flamegraph::generate_diff_flamegraph(b, t, None).ok()
-            });
+            .and_then(|(b, t)| crate::flamegraph::generate_diff_flamegraph(b, t, None).ok());
 
         crate::output::viewer::generate_diff_viewer(
             &baseline,

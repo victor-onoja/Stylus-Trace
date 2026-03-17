@@ -96,9 +96,7 @@ pub fn categorize_stack_leaf(leaf: &str) -> GasCategory {
         return GasCategory::Memory;
     }
     // External calls / creates
-    if n == "call" || n == "staticcall" || n == "delegatecall"
-        || n.contains("create")
-    {
+    if n == "call" || n == "staticcall" || n == "delegatecall" || n.contains("create") {
         return GasCategory::Call;
     }
     // System / context
