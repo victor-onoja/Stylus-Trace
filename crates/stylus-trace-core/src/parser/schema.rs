@@ -11,7 +11,7 @@ use std::collections::HashMap;
 ///
 /// This is computed server-side from `HostIoType` knowledge so the frontend
 /// does not need brittle substring-matching heuristics.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub enum GasCategory {
     /// Expensive storage writes (flush/store)
@@ -29,6 +29,7 @@ pub enum GasCategory {
     /// Root / entry-point frame
     Root,
     /// User-defined contract code not matching any known host op
+    #[default]
     UserCode,
     /// Aggregated remainder
     Other,
@@ -87,6 +88,7 @@ pub struct HotPath {
 
     /// Gas category derived from the leaf node of the stack.
     /// Computed server-side so the frontend doesn't need heuristics.
+    #[serde(default)]
     pub category: GasCategory,
 
     /// Source hint (if debug symbols available)
