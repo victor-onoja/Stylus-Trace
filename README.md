@@ -74,6 +74,7 @@ For live transaction capture, see [docs/quickstart.md](docs/quickstart.md).
 ## 📚 Docs
 
 - [Quickstart](docs/quickstart.md)
+- [Template Validation](docs/template-validation.md)
 - [CI Cookbook](docs/ci-cookbook.md)
 - [Troubleshooting](docs/troubleshooting.md)
 - [Provider Notes](docs/provider-notes.md)
